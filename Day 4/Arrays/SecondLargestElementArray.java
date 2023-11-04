@@ -8,25 +8,22 @@ public static void main(String[] args){
         int n = sc.nextInt();
         int [] arr = new int[n];
         int ans = Integer.MIN_VALUE;
-        int minValue = Integer.MIN_VALUE;
+        int largest = Integer.MIN_VALUE;
+        int secondLargest = Integer.MIN_VALUE;
         for(int i = 0; i < n; i++){
             System.out.println("Enter the array element: ");
             arr[i] = sc.nextInt();
         }
-      
-      for(int i = 0; i < n; i++){
-        if(arr[i] > ans){
-            ans = arr[i];
+    
+        for(int i = 0; i < n; i++){
+          if(arr[i] > largest){
+            secondLargest = largest;
+            largest  = arr[i];
+          }else if(arr[i] > secondLargest && arr[i] != largest){
+              secondLargest = arr[i];
+          }
         }
-      }
-
-      for(int i = 0; i < n; i++){
-        if(arr[i] != ans && arr[i] < ans ){
-            ans = arr[i];
-        }
-      }
-
-      System.out.println("Second Largest element: "+ ans);
+      System.out.println("Second Largest element: "+ secondLargest);
 
         sc.close();
     }
